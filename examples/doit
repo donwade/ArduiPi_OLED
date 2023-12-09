@@ -1,6 +1,8 @@
 sudo i2cdetect -y 1
-sudo make clean
-sudo make
-sudo killall oled_demo
-sudo ./oled_demo --verbose -o 3
+make clean
+make SHELL='/bin/bash -x' | tee build.log
+
+killall oled_demo
+#make SHELL='/bin/bash -x' install
+sudo oled_demo --verbose -o 3
 

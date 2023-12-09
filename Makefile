@@ -71,12 +71,16 @@ Wrapper.o: Wrapper.cpp
 install: 
 	@echo "[Install Library]"
 	@if ( test ! -d $(PREFIX)/lib ) ; then mkdir -p $(PREFIX)/lib ; fi
-	@install -m 0755 ${LIBNAME} ${LIBDIR}
-	@ln -sf ${LIBDIR}/${LIBNAME} ${LIBDIR}/${LIB}.so.1
-	@ln -sf ${LIBDIR}/${LIBNAME} ${LIBDIR}/${LIB}.so
+	@echo "1"
+	install -m 0755 ${LIBNAME} ${LIBDIR}
+	@echo "2"
+	ln -sf ${LIBDIR}/${LIBNAME} ${LIBDIR}/${LIB}.so.1
+	@echo "3"
+	ln -sf ${LIBDIR}/${LIBNAME} ${LIBDIR}/${LIB}.so
 	#@sudo ldconfig
-	@rm -rf ${LIB}.*
-
+	@echo "4"
+	rm -rf ${LIB}.*
+	@echo "5"
 	@echo "[Install Headers]"
 	@if ( test ! -d $(PREFIX)/include ) ; then mkdir -p $(PREFIX)/include ; fi
 	@cp -f  Adafruit_*.h $(PREFIX)/include

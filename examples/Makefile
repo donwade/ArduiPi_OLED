@@ -26,15 +26,16 @@ else # fallback to raspberry
         CCFLAGS=-Ofast -mfpu=vfp -mfloat-abi=hard -march=armv6zk -mtune=arm1176jzf-s
 endif
 
-prefix := /usr/local
+#prefix := /usr/local
+prefix := /home/dwade/$(ARCH).tools-Release
 
 # define all programs
 PROGRAMS = oled_demo teleinfo-oled
 SOURCES = ${PROGRAMS:=.cpp}
 
 CXX=g++
-CFLAGS=${CCFLAGS}
-
+LDFLAGS=-L/home/dwade/armv7l/lib  
+CFLAGS=${CCFLAGS} $(LDFLAGS)
 all: ${PROGRAMS}
 
 ${PROGRAMS}: ${SOURCES}
