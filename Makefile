@@ -31,7 +31,8 @@ else # fallback to raspberry
 endif
 
 # Where you want it installed when you do 'make install'
-PREFIX=/usr/local
+#PREFIX=/usr/local
+PREFIX=/home/dwade/$(ARCH).tools-Release
 
 # Library parameters
 # where to put the lib
@@ -73,7 +74,7 @@ install:
 	@install -m 0755 ${LIBNAME} ${LIBDIR}
 	@ln -sf ${LIBDIR}/${LIBNAME} ${LIBDIR}/${LIB}.so.1
 	@ln -sf ${LIBDIR}/${LIBNAME} ${LIBDIR}/${LIB}.so
-	@ldconfig
+	#@sudo ldconfig
 	@rm -rf ${LIB}.*
 
 	@echo "[Install Headers]"
