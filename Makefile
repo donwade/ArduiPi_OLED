@@ -44,7 +44,7 @@ LIBNAME=$(LIB).so.1.0
 
 CXX=g++
 CC=gcc
-CFLAGS=$(CCFLAGS)
+CFLAGS=$(CCFLAGS) 
 
 # make all
 # reinstall the library after each recompilation
